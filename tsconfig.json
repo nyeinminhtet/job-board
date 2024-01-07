@@ -27,7 +27,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "scripts/seed.js"
+    "scripts/seed.js",
+    "src/lib/validation"
   ],
   "exclude": ["node_modules"]
 }

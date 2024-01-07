@@ -5,7 +5,7 @@ import "./globals.css";
 const popins = Poppins({ subsets: ["latin"], weight: ["400", "500", "600"] });
 
 export const metadata: Metadata = {
-  title: "Job Hub",
+  title: "JobHub",
   description: "Find the suitable work and smark people all over the world.",
 };
 
