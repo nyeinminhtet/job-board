@@ -1,11 +1,16 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const popins = Poppins({ subsets: ["latin"], weight: ["400", "500", "600"] });
 
 export const metadata: Metadata = {
-  title: "JobHub",
+  title: {
+    default: "Job Hub",
+    template: "%s | Job Hub",
+  },
   description: "Find the suitable work and smark people all over the world.",
 };
 
@@ -16,7 +21,11 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${popins.className} min-w-[350px]`}>{children}</body>
+      <body className={`${popins.className} min-w-[350px]`}>
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }

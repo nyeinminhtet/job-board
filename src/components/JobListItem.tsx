@@ -4,7 +4,7 @@ import Image from "next/image";
 import { Banknote, Briefcase, Clock, Globe2, MapPin } from "lucide-react";
 
 import { Job } from "@prisma/client";
-import companyLogo from "../../public/assets/freelancer.png";
+import companyLogo from "../../public/assets/logo.png";
 import { formatMoney, relativeDate } from "@/lib/utils";
 import Badge from "./Badge";
 

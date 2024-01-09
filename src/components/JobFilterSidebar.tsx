@@ -5,7 +5,6 @@ import filterJob, { getOnlyLocations } from "@/actions/job-actions";
 import { Input } from "./ui/input";
 import Select from "./ui/select";
 import { JobTypes } from "@/lib/jobs-types";
-import { Button } from "./ui/button";
 import { JobFilterValues } from "@/lib/validation";
 import FormSubmittingButton from "./FormSubmittingButton";
 
@@ -18,7 +17,7 @@ const JobFilterSidebar = async ({ defaultValue }: JobFilterSidebarProps) => {
 
   return (
     <aside className="sticky top-0 h-fit rounded-lg border bg-background p-4 md:w-[260px] ">
-      <form action={filterJob}>
+      <form action={filterJob} key={JSON.stringify(defaultValue)}>
         <div className="space-y-4">
           <div className="flex flex-col gap-2">
             <Label htmlFor="q">Search</Label>
