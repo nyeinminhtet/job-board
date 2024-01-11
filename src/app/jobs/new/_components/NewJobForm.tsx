@@ -25,6 +25,8 @@ import { Label } from "@/components/ui/label";
 import RichTextEditor from "./RichTextEditor";
 import { draftToMarkdown } from "markdown-draft-js";
 import LoadingButton from "@/components/LoadingButton";
+import { createJobPosting } from "@/actions/job-actions";
+import { useToast } from "@/components/ui/use-toast";
 
 const NewJobForm = () => {
   const form = useForm<CreateJobValues>({
@@ -41,8 +43,26 @@ const NewJobForm = () => {
     formState: { isSubmitting },
   } = form;
 
-  function onSubmit(values: CreateJobValues) {
-    console.log(values);
+  const { toast } = useToast();
+
+  async function onSubmit(values: CreateJobValues) {
+    const formData = new FormData();
+
+    Object.entries(values).forEach(([key, value]) => {
+      if (value) {
+        formData.append(key, value);
+      }
+    });
+
+    try {
+      await createJobPosting(formData);
+    } catch (error) {
+      toast({
+        title: "Something went wrong!",
+        description: "Please try again.",
+        variant: "destructive",
+      });
+    }
   }
 
   return (
